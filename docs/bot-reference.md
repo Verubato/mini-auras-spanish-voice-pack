@@ -1,0 +1,59 @@
+# MiniAurasVoicePackSpanish - bot reference
+
+Version 1.0.0. Interface version 120100. No saved variables, no options UI,
+no slash commands.
+
+## What it does
+
+Adds two Spanish voices, **Miguel** (male, middle-aged, deep and cinematic)
+and **Kate** (female, young, bright and clear), to the voice pack dropdown in
+MiniAuras' Alerts settings. They speak the Spanish spell names for the same
+announcements the shipped English voices cover: important cooldowns,
+defensive cooldowns, and enemy debuffs.
+
+Both voices are Latin American Spanish. A player on a Spain client hears a
+Latin American accent, which is worth knowing before installing.
+
+The addon is audio plus one registration call. It draws nothing, stores
+nothing, and does not change how or when MiniAuras announces.
+
+## How it works
+
+- Ships one OGG per announced spell name under `Sounds\Miguel\` and
+  `Sounds\Kate\`, using the same file names as MiniAuras' own packs.
+- Hands both folders to MiniAuras through
+  `MiniAurasApi.v1:RegisterVoicePack`, tagged for the `esES` and `esMX`
+  client locales.
+- MiniAuras is an optional dependency, so it normally loads first. If it has
+  not, the addon waits on ADDON_LOADED and registers as soon as the API
+  appears.
+
+## Settings
+
+None of its own. The voice is picked in MiniAuras under **Alerts → Voice
+pack**, and the choice is saved by MiniAuras.
+
+## Troubleshooting
+
+**"The voices are not in the dropdown."** They are offered on Spanish
+clients only. On any other client the dropdown shows MiniAuras' English
+voices instead. The names stay reserved everywhere, so a saved
+setting still means this pack when the player switches back to a Spanish
+client.
+
+**"The dropdown is empty of Spanish voices but the addon is enabled."** Check
+MiniAuras itself is installed and enabled, and is recent enough to have the
+voice pack API (5.2.0 and later).
+
+**"A spell announces in English."** That name had no Spanish entry when the
+clips were rendered; the generator falls back to the English name and says
+so. Re-running the two scripts fixes it.
+
+**"The announcement is not what my client calls the spell."** Deliberate for
+about forty names. Long names are cut down to the part players react to, and
+six ids are announced on the aura rather than the cast, so the client's name
+for them belongs to a different ability.
+
+**"The wording is not what a Latin American client shows."** The clips are
+rendered from the Spain client's names. The two clients agree on most spells,
+but around twenty are worded differently and are announced the Spain way.
