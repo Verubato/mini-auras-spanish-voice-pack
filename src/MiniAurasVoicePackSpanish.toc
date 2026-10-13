@@ -1,9 +1,9 @@
-## Interface: 120100, 16001
+## Interface: 120105, 120100, 16001
 ## Title: MiniAurasVoicePackSpanish
 ## Notes: Spanish voice packs for the MiniAuras alert announcements.
 ## Category: Mini
 ## Author: Verz
-## Version: 1.0.4
+## Version: 1.0.5
 ## OptionalDeps: MiniAuras
 ## IconTexture: Interface\AddOns\MiniAurasVoicePackSpanish\Icon.blp
 ## X-Curse-Project-ID: 1668508
